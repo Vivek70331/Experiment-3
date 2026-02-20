@@ -3,7 +3,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
-import Favorites from "./pages/Favorites";
+import Favorites from "./pages/Favorites.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
