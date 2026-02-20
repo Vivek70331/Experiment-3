@@ -1,20 +1,23 @@
-const CardComponent = ({ title, description }) => {
+import { useAppContext } from "../context/AppContext";
+
+export default function CardComponent({ title, description }) {
+  const { dispatch } = useAppContext();
+
+  const addToFavorites = () => {
+    dispatch({
+      type: "ADD_FAVORITE",
+      payload: { id: Date.now(), title },
+    });
+  };
+
   return (
-    <div style={styles.card}>
+    <div className="card">
       <h3>{title}</h3>
       <p>{description}</p>
+
+      <button className="fav-btn" onClick={addToFavorites}>
+        ❤️ Add to Favorites
+      </button>
     </div>
   );
-};
-
-const styles = {
-  card: {
-    padding: "20px",
-    margin: "15px",
-    border: "1px solid #ccc",
-    borderRadius: "10px",
-    width: "250px",
-  }
-};
-
-export default CardComponent;
+}

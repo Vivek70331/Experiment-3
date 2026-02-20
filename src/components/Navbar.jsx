@@ -1,31 +1,20 @@
 import { Link } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
+import { useAppContext } from "../context/AppContext";
 
-const Navbar = () => {
+export default function Navbar() {
+  const { favoriteCount } = useAppContext();
+
   return (
-    <nav style={styles.nav}>
-      <h1 style={styles.logo}>Experiment 3</h1>
-      <div style={styles.links}>
-        <Link to="/" style={styles.link}>Home</Link>
-        <Link to="/projects" style={styles.link}>Projects</Link>
-        <Link to="/contact" style={styles.link}>Contact</Link>
+    <nav className="navbar">
+      <div className="nav-links">
+        <Link to="/">Home</Link>
+        <Link to="/projects">Projects</Link>
+        <Link to="/contact">Contact</Link>
+        <Link to="/favorites">❤️ Favorites ({favoriteCount})</Link>
       </div>
+
+      <ThemeToggle />
     </nav>
   );
-};
-
-const styles = {
-  nav: {
-    padding: "15px 20px",
-    background: "#282c34",
-    color: "white",
-    display: "flex",
-    justifyContent: "space-between",
-  },
-  link: {
-    color: "white",
-    marginLeft: "15px",
-    textDecoration: "none"
-  }
-};
-
-export default Navbar;
+}

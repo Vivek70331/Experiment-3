@@ -1,9 +1,7 @@
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer style={{ padding: "20px", textAlign: "center", background: "#f0f0f0" }}>
-      <p>© 2026 Experiment 3</p>
+    <footer className="footer">
+      © 2026 Experiment 3 & 4
     </footer>
   );
-};
-
-export default Footer;
+}
